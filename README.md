@@ -8,8 +8,8 @@ Step 1: setup the PFNano (current branch: `13_0_7_from124MiniAOD`)
 Step 2: setup `pfnano-prod`
 
 ```bash
-mkdir $CMSSW_BASE/production
-cd $CMSSW_BASE/production
+mkdir $CMSSW_BASE/src/PhysicsTools/PFNano/production
+cd $CMSSW_BASE/src/PhysicsTools/PFNano/production
 git clone https://github.com/colizz/pfnano-prod.git .
 ```
 
