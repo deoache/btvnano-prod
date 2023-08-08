@@ -4,9 +4,9 @@ campaign:
 
   # User specific
   workArea: mc_summer22_st_noPF
-  storageSite: T1_DE_KIT_Disk
-  outLFNDirBase: /store/user/XXX/PFNano
-  voGroup: dcms # or leave empty
+  storageSite: T2_XXX
+  outLFNDirBase: /store/user/XXX/PFNano_Run3/mc_summer22
+  voGroup: null # or leave empty
 
   # Campaign specific
   tag_extension: BTV_Run3_2022_Comm_v2 # Will get appended after the current tag
