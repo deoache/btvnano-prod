@@ -31,7 +31,7 @@ templates = '''campaign:
 
 def get_config(campaign):
     config_prefix = {
-        'mc_summer22_MINIAODv4': 'MC_2022_22Sep2023',
+        'mc_summer22_MINIAODv4': 'MC_preEE2022_22Sep2023',
         'mc_summer22EE_MINIAODv4': 'MC_2022_22Sep2023',
         'data_2022_MINIAODv4': 'data_2022_22Sep2023',
     }

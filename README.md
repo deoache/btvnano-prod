@@ -54,8 +54,12 @@ https://github.com/JanvanderLinden/mrCrabs/tree/main
 ## Notes for developer (TBD)
 
 ```
- # data
+ # data 2022 NanoV12
  cmsDriver.py data_2022_22Sep2023 --conditions 130X_dataRun3_v2 --datatier NANOAOD --era Run3,run3_miniAOD_12X --eventcontent NANOAOD --filein /store/data/Run2022C/BTagMu/MINIAOD/22Sep2023-v1/40000/fc8f31f6-4bf7-4b51-8f6d-ef0833c1e383.root --fileout file:data_defaultAK4.root --nThreads 4 --number -1 --scenario pp --step NANO --data --customise PhysicsTools/NanoAOD/custom_btv_cff.PrepBTVCustomNanoAOD_DATA --customise_commands="process.add_(cms.Service('InitRootHandlers', EnableIMT = cms.untracked.bool(False)));process.MessageLogger.cerr.FwkReport.reportEvery=1000;process.NANOAODoutput.fakeNameForCrab = cms.untracked.bool(True)" --no_exec
- # MC
+
+ # MC 2022 NanoV12- preEE
+cmsDriver.py MC_preEE2022_22Sep2023 --eventcontent NANOAODSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier NANOAODSIM --fileout file:MC_defaultAK4_preEE.root --conditions 130X_mcRun3_2022_realistic_v5 --step NANO --scenario pp --filein /store/mc/Run3Summer22MiniAODv4/QCD_PT-15to20_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/MINIAODSIM/130X_mcRun3_2022_realistic_v5-v2/2520000/056b90db-c5cf-4f5f-a4cb-1c69bf4e65b5.root --era Run3  --mc -n -1 --customise PhysicsTools/NanoAOD/custom_btv_cff.PrepBTVCustomNanoAOD_MC  --nThreads 4  --customise_commands="process.add_(cms.Service('InitRootHandlers', EnableIMT = cms.untracked.bool(False)));process.MessageLogger.cerr.FwkReport.reportEvery=1000;process.NANOAODSIMoutput.fakeNameForCrab = cms.untracked.bool(True)"  --no_exec
+
+ # MC 2022 NanoV12 -postEE
 cmsDriver.py MC_2022_22Sep2023 --eventcontent NANOAODSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier NANOAODSIM --fileout file:MC_defaultAK4.root --conditions 130X_mcRun3_2022_realistic_postEE_v6 --step NANO --scenario pp --filein /store/mc/Run3Summer22EEMiniAODv4/QCD_PT-15to20_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/MINIAODSIM/130X_mcRun3_2022_realistic_postEE_v6-v2/2520000/177762d0-23ed-436f-aa0d-a20c33e33dc3.root --era Run3  --mc -n -1 --customise PhysicsTools/NanoAOD/custom_btv_cff.PrepBTVCustomNanoAOD_MC  --nThreads 4  --customise_commands="process.add_(cms.Service('InitRootHandlers', EnableIMT = cms.untracked.bool(False)));process.MessageLogger.cerr.FwkReport.reportEvery=1000;process.NANOAODSIMoutput.fakeNameForCrab = cms.untracked.bool(True)"  --no_exec
 ```
