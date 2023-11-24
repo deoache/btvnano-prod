@@ -1,19 +1,19 @@
 campaign:
-  name: data_2022CDE_rereco_MuonEG_noPF
-  crab_template: ../test/template_crab.py
+  name: data_2022_MINIAODv4_BTagMu
+  crab_template: template_crab.py
 
   # User specific
-  workArea: data_2022CDE_rereco_MuonEG_noPF
+  workArea: data_2022_MINIAODv4_BTagMu
   storageSite: T2_XXX
-  outLFNDirBase: /store/user/XXX/PFNano_Run3/data_2022CDE_rereco
+  outLFNDirBase: /store/user/XXX/PFNano_Run3/data_2022_MINIAODv4
   voGroup: null # or leave empty
 
   # Campaign specific
-  tag_extension: BTV_Run3_2022_Comm_v2 # Will get appended after the current tag
+  tag_extension: BTV_Run3_2022_Comm_MINIAODv4 # Will get appended after the current tag
   tag_mod: # Will modify name in-place for MC eg. "PFNanoAODv1" will replace MiniAODv2 -> PFNanoAODv1
   # If others shall be able to access dataset via DAS (important when collaborating for commissioning!)
   publication: True
-  config: ../test/nano_data_2022CDE_noPF_NANO.py
+  config: data_2022_22Sep2023_NANO.py
   # Specify if running on data
   data: True
   lumiMask: jsons/Cert_Collisions2022_355100_362760_Golden.json 
@@ -22,6 +22,8 @@ campaign:
   # wait for tasks to finish before submitting entire campaigns,
   # it's better to request one dataset at a time (taking fairshare into account)
   datasets: |
-    /MuonEG/Run2022C-27Jun2023-v1/MINIAOD
-    /MuonEG/Run2022D-27Jun2023-v2/MINIAOD
-    /MuonEG/Run2022E-27Jun2023-v1/MINIAOD
+    /BTagMu/Run2022C-22Sep2023-v1/MINIAOD
+    /BTagMu/Run2022D-22Sep2023-v1/MINIAOD
+    /BTagMu/Run2022E-22Sep2023-v1/MINIAOD
+    /BTagMu/Run2022F-22Sep2023-v2/MINIAOD
+    /BTagMu/Run2022G-22Sep2023-v1/MINIAOD

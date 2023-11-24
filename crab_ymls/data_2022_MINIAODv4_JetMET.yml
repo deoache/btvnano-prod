@@ -1,26 +1,29 @@
 campaign:
-  name: mc_summer22_dy_noPF
-  crab_template: ../test/template_crab.py
+  name: data_2022_MINIAODv4_JetMET
+  crab_template: template_crab.py
 
   # User specific
-  workArea: mc_summer22_dy_noPF
+  workArea: data_2022_MINIAODv4_JetMET
   storageSite: T2_XXX
-  outLFNDirBase: /store/user/XXX/PFNano_Run3/mc_summer22
+  outLFNDirBase: /store/user/XXX/PFNano_Run3/data_2022_MINIAODv4
   voGroup: null # or leave empty
 
   # Campaign specific
-  tag_extension: BTV_Run3_2022_Comm_v2 # Will get appended after the current tag
+  tag_extension: BTV_Run3_2022_Comm_MINIAODv4 # Will get appended after the current tag
   tag_mod: # Will modify name in-place for MC eg. "PFNanoAODv1" will replace MiniAODv2 -> PFNanoAODv1
   # If others shall be able to access dataset via DAS (important when collaborating for commissioning!)
   publication: True
-  config: ../test/nano_mc_Run3_noPF_NANO.py
+  config: data_2022_22Sep2023_NANO.py
   # Specify if running on data
-  data: False
-  lumiMask:  
+  data: True
+  lumiMask: jsons/Cert_Collisions2022_355100_362760_Golden.json 
   # datasets will take either a list of DAS names or a text file containing them
   # do NOT submit too many tasks at the same time, despite it looking more convenient to you
   # wait for tasks to finish before submitting entire campaigns,
   # it's better to request one dataset at a time (taking fairshare into account)
   datasets: |
-    /DYto2L-2Jets_MLL-10to50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer22MiniAODv3-124X_mcRun3_2022_realistic_v12-v3/MINIAODSIM
-    /DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer22MiniAODv3-124X_mcRun3_2022_realistic_v12-v4/MINIAODSIM
+    /JetMET/Run2022C-22Sep2023-v1/MINIAOD
+    /JetMET/Run2022D-22Sep2023-v1/MINIAOD
+    /JetMET/Run2022E-22Sep2023-v1/MINIAOD
+    /JetMET/Run2022F-22Sep2023-v2/MINIAOD
+    /JetMET/Run2022G-22Sep2023-v2/MINIAOD
