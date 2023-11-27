@@ -22,6 +22,7 @@ def get_crab_info(directory):
 
     return jobs_status, output_dataset
 
+########The following function is not very nice and can cause user dependent issues: better ideas required########
 def modify_das_path(das_path):
     parts = das_path.split('/')
     if len(parts) >= 4:
@@ -35,7 +36,7 @@ def modify_das_path(das_path):
             parts[2] = parts[2][:start_index]
         modified_path = modified_path = f'/{parts[1]}/{parts[2]}/MINIAODSIM'
         return modified_path
-    
+##############################################################################    
 
 def main(base_path, output_path, yaml_path, csv_ext):
     # Specify the name of the CSV file
@@ -52,7 +53,7 @@ def main(base_path, output_path, yaml_path, csv_ext):
     # Extract the list from the YAML file
     yaml_list_str = yaml_data['campaign']['datasets']
     yaml_list = [item.strip() for item in yaml_list_str.split('\n')] if isinstance(yaml_list_str, str) else []
-    #print(yaml_list)
+
     # Generate a list of directories in the specified path
     directory_list = [d for d in os.listdir(base_path) if os.path.isdir(os.path.join(base_path, d)) and 'crab' in d]
     data_list = []
@@ -80,7 +81,7 @@ def main(base_path, output_path, yaml_path, csv_ext):
         for missing_sample in missing_samples:
             print(f"Samples missing in CSV: {missing_sample}")
     else:
-        print("You're great! Nothing is missing for production.")
+        print("Nothing is missing for production.")
         
 if __name__ == "__main__":
     import sys
@@ -91,11 +92,8 @@ if __name__ == "__main__":
         sys.exit(1)
 
     base_path = sys.argv[1]
-    csv_ext = os.path.basename(sys.argv[1])
+    csv_ext = os.path.basename(os.path.normpath(base_path))
+    print(csv_ext)
     yaml_path = sys.argv[2]
-    output_path = "/eos/user/u/usarkar/www/btvnano_prod/"  # Replace with your desired output path
-
+    output_path = "/eos/user/b/btvweb/www/BTVNanoProduction/" 
     main(base_path, output_path,yaml_path,csv_ext)
-
-
-    
