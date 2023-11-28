@@ -5,6 +5,8 @@ import re
 import yaml
 import pandas as pd
 import sys
+import numpy as np
+import matplotlib.pyplot as plt
 
 def get_crab_info(directory):
     try:
@@ -34,13 +36,15 @@ def modify_das_path(das_path):
         start_index = parts[2].find(substring_to_drop)
         if start_index != -1:
             parts[2] = parts[2][:start_index]
-        modified_path = modified_path = f'/{parts[1]}/{parts[2]}/MINIAODSIM'
-        return modified_path
+        modified_path = f'/{parts[1]}/{parts[2]}/MINIAODSIM'
+        modified_plotpath = f'{parts[1]}'
+        return modified_path, modified_plotpath 
 ##############################################################################    
 
 def main(base_path, output_path, yaml_path, csv_ext):
     # Specify the name of the CSV file
     csv_file = os.path.join(output_path, f'crab_info_{csv_ext}.csv')
+    png_file = os.path.join(output_path, f'{csv_ext}.png')
 
     # Create the header in the consolidated CSV file
     with open(csv_file, 'w', newline='') as csvfile:
@@ -57,6 +61,8 @@ def main(base_path, output_path, yaml_path, csv_ext):
     # Generate a list of directories in the specified path
     directory_list = [d for d in os.listdir(base_path) if os.path.isdir(os.path.join(base_path, d)) and 'crab' in d]
     data_list = []
+    job_status = []
+    sample_name = []
     # Loop through the directory list and get crab info for each directory
     for directory in directory_list:
         print(f"Running crab status for directory: {directory}")
@@ -65,24 +71,74 @@ def main(base_path, output_path, yaml_path, csv_ext):
         print(f"Job status: {jobs_status}")
 
         # Modify the DAS Path
-        modified_das_path = modify_das_path(output_dataset)
+        modified_das_path, modified_plot_path  = modify_das_path(output_dataset)
         data_list.append(modified_das_path)
+        job_status.append(jobs_status)
+        sample_name.append(modified_plot_path)
+
         # Append the information to the consolidated CSV file
         with open(csv_file, 'a', newline='') as csvfile:
             csv_writer = csv.writer(csvfile)
             csv_writer.writerow([modified_das_path, jobs_status, output_dataset])
     print(f'csv file created and saved in the www eos area. Every execution will overwrite the previous csv.: {csv_file}')
     #print(data_list)
+    #Plot the progress bars for each job
+    plotter(sample_name,job_status,filename=png_file)
+    
     # Find in YAML list that are missing in modified_das_path
     missing_samples = [yaml_value for yaml_value in yaml_list if yaml_value not in data_list]
-
     # Print missing samples
     if missing_samples:
         for missing_sample in missing_samples:
             print(f"Samples missing in CSV: {missing_sample}")
     else:
         print("Nothing is missing for production.")
-        
+
+def plotter(sample, status, filename=None):
+    # Define color thresholds
+    color_thresholds = [0.0, 25.0, 50.0, 75.0, 90.0, 98.0, 101.0]
+    colors = ['red', 'orange', 'yellow', 'lightgreen', 'mediumseagreen', 'darkgreen']
+
+    # Assign colors based on the percentage ranges
+    bar_colors = []
+    for percentage in status:
+        digitized_index = np.digitize(percentage, color_thresholds) - 1
+        if 0 <= digitized_index < len(colors):
+            bar_colors.append(colors[digitized_index])
+        else:
+            # Handle the case where the index is out of bounds
+            print("Warning: Index out of bounds for percentage:", percentage)
+            bar_colors.append('default_color')
+
+    # Set figure size and resolution
+    fig, ax = plt.subplots(figsize=(10, 10), dpi=150)
+
+    # Create a 2D plot with custom colors
+    plt.barh(sample, status, color=bar_colors)
+    plt.xlabel('Average Percentage')
+    plt.ylabel('Sample Names')
+    plt.title('Progress in Each Sample')
+
+    # Add grid lines
+    ax.grid(axis='x', linestyle='--', alpha=0.7)
+
+    # Add more tickers for finer bins
+    ax.set_xticks(np.arange(0, 101, 5))
+
+    # Add percentage symbols to x-axis ticks
+    ax.set_xticklabels([f'{x}%' for x in np.arange(0, 101, 5)])
+
+    # Add legend
+    legend_labels = ['<25%', '25-50%', '50-75%', '75-90%', '90-98%', '>98%']
+    legend_handles = [plt.Rectangle((0, 0), 1, 1, color=color) for color in colors]
+    plt.legend(legend_handles, legend_labels, loc='lower right')
+    plt.tight_layout()
+    # Save the figure
+    if filename:
+        plt.savefig(filename)
+    else:
+        plt.show()
+
 if __name__ == "__main__":
     import sys
 
