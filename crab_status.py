@@ -43,8 +43,8 @@ def modify_das_path(das_path):
 
 def main(base_path, output_path, yaml_path, csv_ext):
     # Specify the name of the CSV file
-    csv_file = os.path.join(output_path, f'crab_info_{csv_ext}.csv')
-    png_file = os.path.join(output_path, f'{csv_ext}.png')
+    csv_file = os.path.join(output_path, f'csvoutputs/crab_info_{csv_ext}.csv')
+    png_file = os.path.join(output_path, f'ProgressPlots/{csv_ext}.png')
 
     # Create the header in the consolidated CSV file
     with open(csv_file, 'w', newline='') as csvfile:
