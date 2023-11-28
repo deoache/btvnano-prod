@@ -51,6 +51,18 @@ Step 4: track the production status using nice tool from Jan van der Linden
 
 https://github.com/JanvanderLinden/mrCrabs/tree/main
 
+Step 5: Creation of csv tables with the job progress status.
+
+There is a standalone script ```crab_status.py``` which takes the crab directory from your work area as an input and pars the job status info in a csv table. The csv files are saved in the btveos-www area and can be monitored in browser. It takes a second input of your submitted yml script to make a comparison between datasets and the crab directory outputs.
+
+Usage:
+```python crab_status.py <crab_dir_path> <crab_yml to compare>```
+
+A second script ```plotter.py``` produces a overall progress plot and sends it directly to the btveos-www area. 
+
+Usage:
+```python plotter.py```
+
 ## Notes for developer (TBD)
 
 ```
