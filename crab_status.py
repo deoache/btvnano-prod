@@ -79,7 +79,7 @@ def main(base_path, output_path, yaml_path, csv_ext):
         # Modify the DAS Path
         modified_das_path, modified_plot_path  = modify_das_path(output_dataset)
         data_list.append(modified_das_path)
-        job_status.append(jobs_status)
+        job_status.append(float(jobs_status))
         sample_name.append(modified_plot_path)
 
         # Append the information to the consolidated CSV file
@@ -94,7 +94,7 @@ def main(base_path, output_path, yaml_path, csv_ext):
     # Find in YAML list that are missing in modified_das_path
     missing_samples = [yaml_value for yaml_value in yaml_list if yaml_value not in data_list]
     # Print missing samples
-    if missing_samples:
+    if missing_samples and missing_samples!=['']:
         for missing_sample in missing_samples:
             print(f"Samples missing in CSV: {missing_sample}")
     else:
@@ -116,13 +116,13 @@ def plotter(sample, status, filename=None):
         else:
             # Handle the case where the index is out of bounds
             print("Warning: Index out of bounds for percentage:", percentage)
-            bar_colors.append('default_color')
-        sample[i]=sample[i]+"\n"+str(round(percentage,1))
+            bar_colors.append('grey')
+        sample[i]=sample[i]+"\n"+str(round(float(percentage),1))
 
     # Set figure size and resolution
     fig, ax = plt.subplots(figsize=(10, 10), dpi=150)
 
-    # Create a 2D plot with custom colors
+    # Create a 2D plot with custom color
     plt.barh(sample, status, color=bar_colors)
     plt.xlabel('Average Percentage')
     plt.ylabel('Sample Names')
@@ -140,7 +140,7 @@ def plotter(sample, status, filename=None):
     # Add legend
     legend_labels = ['<25%', '25-50%', '50-75%', '75-90%', '90-98%', '>98%']
     legend_handles = [plt.Rectangle((0, 0), 1, 1, color=color) for color in colors]
-    plt.legend(legend_handles, legend_labels,bbox_to_anchor=(0, 1.02, 1, 0.2), loc="lower left",mode="expand", borderaxespad=0, ncol=6)c
+    plt.legend(legend_handles, legend_labels,bbox_to_anchor=(0, 1.02, 1, 0.2), loc="lower left",mode="expand", borderaxespad=0, ncol=6)
     plt.tight_layout()
     
     # Save the figure

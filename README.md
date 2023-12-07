@@ -61,7 +61,14 @@ https://github.com/JanvanderLinden/mrCrabs/tree/main
 
 Step 5: Creation of csv tables with the job progress status.
 
-There is a standalone script ```crab_status.py``` which takes the crab directory from your work area as an input and pars the job status info in a csv table. The csv files are saved in the btveos-www area and can be monitored in browser. It takes a second input of your submitted yml script to make a comparison between datasets and the crab directory outputs. 
+There is a standalone script ```crab_status.py``` which takes the crab directory from your work area as an input and parses the job status info in a csv table. The csv files are saved in the btveos-www area and can be monitored in browser. It takes a second input of your submitted yml script to make a comparison between datasets and the crab directory outputs. 
+
+First install `yaml`, `pandas`, and `matplotlib`:
+```
+pip install pyyaml --user
+pip install pandas --user
+pip install matplotlib --user
+```
 
 Usage:
 ```python
