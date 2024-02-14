@@ -93,20 +93,33 @@ data: Get the request ID from [pMp](https://cms-pdmv-prod.web.cern.ch/pmp/histor
 
 <details><summary>cms driver commands</summary>
 <p>
-  ```python 
-  # data 2022 NanoV12
+
+  ### data 2022 NanoV12
+  ```
   cmsDriver.py data_2022_22Sep2023 --conditions 130X_dataRun3_v2 --datatier NANOAOD --era Run3,run3_miniAOD_12X --eventcontent NANOAOD --filein /store/data/Run2022C/BTagMu/MINIAOD/22Sep2023-v1/40000/fc8f31f6-4bf7-4b51-8f6d-ef0833c1e383.root --fileout file:data_defaultAK4.root --nThreads 4 --number -1 --scenario pp --step NANO --data --customise PhysicsTools/NanoAOD/custom_btv_cff.PrepBTVCustomNanoAOD_DATA --customise_commands="process.add_(cms.Service('InitRootHandlers', EnableIMT = cms.untracked.bool(False)));process.MessageLogger.cerr.FwkReport.reportEvery=1000;process.NANOAODoutput.fakeNameForCrab = cms.untracked.bool(True)" --no_exec
-  # MC 2022 NanoV12- preEE
+  ```
+  ### MC 2022 NanoV12- preEE
+  ```
   cmsDriver.py MC_preEE2022_22Sep2023 --eventcontent NANOAODSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier NANOAODSIM --fileout file:MC_defaultAK4_preEE.root --conditions 130X_mcRun3_2022_realistic_v5 --step NANO --scenario pp --filein /store/mc/Run3Summer22MiniAODv4/QCD_PT-15to20_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/MINIAODSIM/130X_mcRun3_2022_realistic_v5-v2/2520000/056b90db-c5cf-4f5f-a4cb-1c69bf4e65b5.root --era Run3  --mc -n -1 --customise PhysicsTools/NanoAOD/custom_btv_cff.PrepBTVCustomNanoAOD_MC  --nThreads 4  --customise_commands="process.add_(cms.Service('InitRootHandlers', EnableIMT = cms.untracked.bool(False)));process.MessageLogger.cerr.FwkReport.reportEvery=1000;process.NANOAODSIMoutput.fakeNameForCrab = cms.untracked.bool(True)"  --no_exec
-  # MC 2022 NanoV12 -postEE
+```
+  ### MC 2022 NanoV12 -postEE
+  ```
   cmsDriver.py MC_2022_22Sep2023 --eventcontent NANOAODSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier NANOAODSIM --fileout file:MC_defaultAK4.root --conditions 130X_mcRun3_2022_realistic_postEE_v6 --step NANO --scenario pp --filein /store/mc/Run3Summer22EEMiniAODv4/QCD_PT-15to20_MuEnrichedPt5_TuneCP5_13p6TeV_pythia8/MINIAODSIM/130X_mcRun3_2022_realistic_postEE_v6-v2/2520000/177762d0-23ed-436f-aa0d-a20c33e33dc3.root --era Run3  --mc -n -1 --customise PhysicsTools/NanoAOD/custom_btv_cff.PrepBTVCustomNanoAOD_MC  --nThreads 4  --customise_commands="process.add_(cms.Service('InitRootHandlers', EnableIMT = cms.untracked.bool(False)));process.MessageLogger.cerr.FwkReport.reportEvery=1000;process.NANOAODSIMoutput.fakeNameForCrab = cms.untracked.bool(True)"  --no_exec
-  # data 2023 NanoV12
+```
+  ### data 2023 NanoV12
+  ```
   cmsDriver.py data_2023_22Sep2023 --conditions 130X_dataRun3_Prompt_v1 --datatier NANOAOD --era Run3 --eventcontent NANOAOD --filein /store/data/Run2023C/BTagMu/MINIAOD/22Sep2023_v2-v1/2540000/0a4d9d3c-566d-48f2-886d-fbd4d5d513cf.root --fileout file:data_defaultAK4_2023.root --nThreads 2 --no_exec --number -1  --scenario pp --step NANO --data  --customise "PhysicsTools/NanoAOD/custom_btv_cff.PrepBTVCustomNanoAOD_DATA"
-  # MC 2023 NanoV12 - preBPix 
-  cmsDriver.py MC_Summer23 --eventcontent NANOAODSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier NANOAODSIM --fileout file:MC_defaultAK4_2023.root --conditions 130X_mcRun3_2023_realistic_v14 --step NANO --scenario  pp --era Run3_2023 --mc -n -1   --filein /store/mc/Run3Summer23BPixMiniAODv4/DYTo2L_MLL-4to50_TuneCP5_13p6TeV_pythia8/MINIAODSIM/130X_mcRun3_2023_realistic_postBPix_v2-v1/60000/661a9e9a-e693-4216-9ea1-8d03793951ab.root  --customise PhysicsTools/NanoAOD/custom_btv_cff.PrepBTVCustomNanoAOD_MC  --nThreads 4  --customise_commands="process.add_(cms.Service('InitRootHandlers', EnableIMT = cms.untracked.bool(False)));process.MessageLogger.cerr.FwkReport.reportEvery=1000;process.NANOAODSIMoutput.fakeNameForCrab = cms.untracked.bool(True)"  --no_exec 
-  # MC 2023 NanoV12 -postBPix 
+```
+
+  ### MC 2023 NanoV12 - preBPix 
+  ```
+cmsDriver.py MC_Summer23 --eventcontent NANOAODSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier NANOAODSIM --fileout file:MC_defaultAK4_2023.root --conditions 130X_mcRun3_2023_realistic_v14 --step NANO --scenario  pp --era Run3_2023 --mc -n -1   --filein /store/mc/Run3Summer23BPixMiniAODv4/DYTo2L_MLL-4to50_TuneCP5_13p6TeV_pythia8/MINIAODSIM/130X_mcRun3_2023_realistic_postBPix_v2-v1/60000/661a9e9a-e693-4216-9ea1-8d03793951ab.root  --customise PhysicsTools/NanoAOD/custom_btv_cff.PrepBTVCustomNanoAOD_MC  --nThreads 4  --customise_commands="process.add_(cms.Service('InitRootHandlers', EnableIMT = cms.untracked.bool(False)));process.MessageLogger.cerr.FwkReport.reportEvery=1000;process.NANOAODSIMoutput.fakeNameForCrab = cms.untracked.bool(True)"  --no_exec
+```
+  ### MC 2023 NanoV12 -postBPix 
+  ```
   cmsDriver.py MC_Summer23_postBPix --eventcontent NANOAODSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier NANOAODSIM --fileout file:MC_defaultAK4_2023_postBpix.root --conditions 130X_mcRun3_2023_realistic_postBPix_v2 --step NANO --scenario pp --filein /store/mc/Run3Summer23BPixMiniAODv4/DYTo2L_MLL-4to50_TuneCP5_13p6TeV_pythia8/MINIAODSIM/130X_mcRun3_2023_realistic_postBPix_v2-v1/60000/661a9e9a-e693-4216-9ea1-8d03793951ab.root --era Run3_2023 --no_exec --mc -n -1 --customise PhysicsTools/NanoAOD/custom_btv_cff.PrepBTVCustomNanoAOD_MC  --nThreads 4  --customise_commands="process.add_(cms.Service('InitRootHandlers', EnableIMT = cms.untracked.bool(False)));process.MessageLogger.cerr.FwkReport.reportEvery=1000;process.NANOAODSIMoutput.fakeNameForCrab = cms.untracked.bool(True)"  --no_exec
   ```
+
 </p>
 </details>
 
