@@ -28,7 +28,7 @@ scram b -j 10
 Step 2: setup `btvnano-prod` 
 
 ```bash
-git clone https://github.com/cms-btv-pog/btvnano-prod.git -b NanoAODv12_22Sep2023.
+git clone https://github.com/deoache/btvnano-prod.git -b NanoAODv12_22Sep2023
 ```
 
 Step 2.1 modify the configuration in `crab_ymls`
