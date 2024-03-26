@@ -1,9 +1,9 @@
 campaign:
-  name: mc_summer22EE_MINIAODv4_dy
+  name: mc_summer22EE_MINIAODv4_zzto4l
   crab_template: template_crab.py
 
   # User specific
-  workArea: mc_summer22EE_MINIAODv4_dy
+  workArea: mc_summer22EE_MINIAODv4_zzto4l
   storageSite: T2_BE_IIHE
   outLFNDirBase: /store/user/daocampo/PFNano_Run3/mc_summer22EE_MINIAODv4
   voGroup: null # or leave empty
@@ -16,12 +16,10 @@ campaign:
   config: MC_2022_22Sep2023_NANO.py
   # Specify if running on data
   data: False
-  lumiMask:  
+  lumiMask:
   # datasets will take either a list of DAS names or a text file containing them
   # do NOT submit too many tasks at the same time, despite it looking more convenient to you
   # wait for tasks to finish before submitting entire campaigns,
   # it's better to request one dataset at a time (taking fairshare into account)
   datasets: |
-    /DYto2L-2Jets_MLL-50_0J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
-    /DYto2L-2Jets_MLL-50_1J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
-    /DYto2L-2Jets_MLL-50_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
+    /ZZto4L_TuneCP5_13p6TeV_powheg-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
