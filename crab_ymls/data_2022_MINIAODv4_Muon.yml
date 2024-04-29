@@ -4,8 +4,8 @@ campaign:
 
   # User specific
   workArea: data_2022_MINIAODv4_Muon
-  storageSite: T2_XXX
-  outLFNDirBase: /store/user/XXX/PFNano_Run3/data_2022_MINIAODv4
+  storageSite: T2_BE_IIHE
+  outLFNDirBase: /store/user/daocampo/PFNano_Run3/data_2022_MINIAODv4
   voGroup: null # or leave empty
 
   # Campaign specific
@@ -27,4 +27,5 @@ campaign:
     /Muon/Run2022C-22Sep2023-v1/MINIAOD
     /Muon/Run2022D-22Sep2023-v1/MINIAOD
     /Muon/Run2022E-22Sep2023-v1/MINIAOD
+    /Muon/Run2022F-22Sep2023-v2/MINIAOD
     /Muon/Run2022G-22Sep2023-v1/MINIAOD
