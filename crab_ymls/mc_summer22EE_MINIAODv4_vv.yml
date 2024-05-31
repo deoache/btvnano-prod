@@ -4,8 +4,8 @@ campaign:
 
   # User specific
   workArea: mc_summer22EE_MINIAODv4_vv
-  storageSite: T2_XXX
-  outLFNDirBase: /store/user/XXX/PFNano_Run3/mc_summer22EE_MINIAODv4
+  storageSite: T2_BE_IIHE
+  outLFNDirBase: /store/user/daocampo/PFNano_Run3/mc_summer22EE_MINIAODv4
   voGroup: null # or leave empty
 
   # Campaign specific
