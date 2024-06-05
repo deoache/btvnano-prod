@@ -8,18 +8,14 @@ Submit crab jobs for btvNano production using crabb.py.
 **This branch is set for CMSSW_13_0_13 for NanoV12 production**
 
 ## Instruction for user 
-Step 1: setup up cmssw & setup crab
+Step 1: setup up cmssw & setup crab (lxplus8)
 
 ```bash
 cmsrel CMSSW_13_0_13
 cd CMSSW_13_0_13/src
-## if not on lxplus with cc7
 source /cvmfs/grid.cern.ch/centos7-umd4-ui-4_200423/etc/profile.d/setup-c7-ui-example.sh
 source /cvmfs/cms.cern.ch/common/crab-setup.sh prod # note: this is new w.r.t. 106X instructions
 source /cvmfs/cms.cern.ch/cmsset_default.sh
-## if on lxplus
-crabsetup
-### 
 cmsenv
 git cms-merge-topic Ming-Yan:130X-fixPuppi_NanoV12
 scram b -j 10
