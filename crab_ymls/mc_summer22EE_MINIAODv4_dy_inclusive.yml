@@ -1,5 +1,5 @@
 campaign:
-  name: mc_summer22EE_MINIAODv4_dy
+  name: mc_summer22EE_MINIAODv4_dy_inclusive
   crab_template: template_crab.py
 
   # User specific
@@ -23,3 +23,4 @@ campaign:
   # it's better to request one dataset at a time (taking fairshare into account)
   datasets: |
     /DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
+    /DYto2L-2Jets_MLL-10to50_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer22EEMiniAODv4-130X_mcRun3_2022_realistic_postEE_v6-v2/MINIAODSIM
